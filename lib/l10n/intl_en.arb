@@ -1,0 +1,11 @@
+{
+    "@@locale": "en",
+    "app_name": "Proj base",
+    "@app_name": {
+        "description": "Application name"
+    },
+    "count": "Count",
+    "@count": {
+        "description": "Count title"
+    }
+}
