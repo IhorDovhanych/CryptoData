@@ -1,0 +1,2 @@
+D:/Projects/ChallengeMeTestTask/crypto_data/android/app/.cxx/RelWithDebInfo/2h436q5o/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Projects/ChallengeMeTestTask/crypto_data/android/app/.cxx/RelWithDebInfo/2h436q5o/armeabi-v7a/CMakeFiles/rebuild_cache.dir

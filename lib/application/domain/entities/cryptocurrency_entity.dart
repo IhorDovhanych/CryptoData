@@ -30,7 +30,7 @@ class CryptocurrencyEntity extends Equatable {
     final String? symbol,
     final String? name,
     final String? image,
-    final dynamic? currentPrice,
+    final dynamic currentPrice,
   }) => CryptocurrencyEntity(
       id: id ?? this.id,
       symbol: symbol ?? this.symbol,

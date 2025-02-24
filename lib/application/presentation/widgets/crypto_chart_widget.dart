@@ -33,7 +33,7 @@ Widget cryptoChartWidget(final List<double> priceHistory) => SizedBox(
           lineTouchData: LineTouchData(
             touchTooltipData: LineTouchTooltipData(
               getTooltipItems: (final List<LineBarSpot> touchedSpots) => touchedSpots.map((final spot) => LineTooltipItem(
-                    'Price: ${spot.y.toStringAsFixed(2)}\nDay: ${spot.x.toInt()}',
+                    'Price: ${spot.y.toStringAsFixed(2)}',
                     const TextStyle(color: Colors.white),
                   )).toList(),
             ),

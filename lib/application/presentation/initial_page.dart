@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:crypto_data/application/presentation/router/router.gr.dart';
+import 'package:flutter/cupertino.dart';
 
 class InitialPage extends StatelessWidget {
   const InitialPage({super.key});

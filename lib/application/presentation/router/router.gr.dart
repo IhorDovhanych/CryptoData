@@ -11,20 +11,24 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter/material.dart' as _i4;
+import 'package:auto_route/auto_route.dart' as _i4;
+import 'package:crypto_data/application/domain/entities/cryptocurrency_entity.dart'
+    as _i6;
+import 'package:crypto_data/application/presentation/features/main/features/detail/page/detail_page.dart'
+    as _i3;
 import 'package:crypto_data/application/presentation/features/main/page/main_page.dart'
     as _i2;
 import 'package:crypto_data/application/presentation/initial_page.dart' as _i1;
+import 'package:flutter/material.dart' as _i5;
 
-class AppRouter extends _i3.RootStackRouter {
-  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
+class AppRouter extends _i4.RootStackRouter {
+  AppRouter([_i5.GlobalKey<_i5.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
+  final Map<String, _i4.PageFactory> pagesMap = {
     InitialRoute.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
+      return _i4.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i1.InitialPage(),
       );
@@ -32,14 +36,27 @@ class AppRouter extends _i3.RootStackRouter {
     MainRoute.name: (routeData) {
       final args =
           routeData.argsAs<MainRouteArgs>(orElse: () => const MainRouteArgs());
-      return _i3.CustomPage<dynamic>(
+      return _i4.CustomPage<dynamic>(
         routeData: routeData,
-        child: _i3.WrappedRoute(
+        child: _i4.WrappedRoute(
             child: _i2.MainPage(
           key: args.key,
           initialTabIndex: args.initialTabIndex,
         )),
-        transitionsBuilder: _i3.TransitionsBuilders.fadeIn,
+        transitionsBuilder: _i4.TransitionsBuilders.fadeIn,
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
+    DetailRoute.name: (routeData) {
+      final args = routeData.argsAs<DetailRouteArgs>();
+      return _i4.CustomPage<dynamic>(
+        routeData: routeData,
+        child: _i3.DetailPage(
+          key: args.key,
+          cryptocurrency: args.cryptocurrency,
+        ),
+        transitionsBuilder: _i4.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
@@ -47,19 +64,24 @@ class AppRouter extends _i3.RootStackRouter {
   };
 
   @override
-  List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig(
+  List<_i4.RouteConfig> get routes => [
+        _i4.RouteConfig(
           InitialRoute.name,
           path: '/',
           children: [
-            _i3.RouteConfig(
+            _i4.RouteConfig(
               MainRoute.name,
               path: 'main_page',
               parent: InitialRoute.name,
-            )
+            ),
+            _i4.RouteConfig(
+              DetailRoute.name,
+              path: 'detail',
+              parent: InitialRoute.name,
+            ),
           ],
         ),
-        _i3.RouteConfig(
+        _i4.RouteConfig(
           '*#redirect',
           path: '*',
           redirectTo: '/',
@@ -70,8 +92,8 @@ class AppRouter extends _i3.RootStackRouter {
 
 /// generated route for
 /// [_i1.InitialPage]
-class InitialRoute extends _i3.PageRouteInfo<void> {
-  const InitialRoute({List<_i3.PageRouteInfo>? children})
+class InitialRoute extends _i4.PageRouteInfo<void> {
+  const InitialRoute({List<_i4.PageRouteInfo>? children})
       : super(
           InitialRoute.name,
           path: '/',
@@ -83,9 +105,9 @@ class InitialRoute extends _i3.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.MainPage]
-class MainRoute extends _i3.PageRouteInfo<MainRouteArgs> {
+class MainRoute extends _i4.PageRouteInfo<MainRouteArgs> {
   MainRoute({
-    _i4.Key? key,
+    _i5.Key? key,
     int initialTabIndex = 0,
   }) : super(
           MainRoute.name,
@@ -105,12 +127,46 @@ class MainRouteArgs {
     this.initialTabIndex = 0,
   });
 
-  final _i4.Key? key;
+  final _i5.Key? key;
 
   final int initialTabIndex;
 
   @override
   String toString() {
     return 'MainRouteArgs{key: $key, initialTabIndex: $initialTabIndex}';
+  }
+}
+
+/// generated route for
+/// [_i3.DetailPage]
+class DetailRoute extends _i4.PageRouteInfo<DetailRouteArgs> {
+  DetailRoute({
+    _i5.Key? key,
+    required _i6.CryptocurrencyEntity cryptocurrency,
+  }) : super(
+          DetailRoute.name,
+          path: 'detail',
+          args: DetailRouteArgs(
+            key: key,
+            cryptocurrency: cryptocurrency,
+          ),
+        );
+
+  static const String name = 'DetailRoute';
+}
+
+class DetailRouteArgs {
+  const DetailRouteArgs({
+    this.key,
+    required this.cryptocurrency,
+  });
+
+  final _i5.Key? key;
+
+  final _i6.CryptocurrencyEntity cryptocurrency;
+
+  @override
+  String toString() {
+    return 'DetailRouteArgs{key: $key, cryptocurrency: $cryptocurrency}';
   }
 }

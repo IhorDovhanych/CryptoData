@@ -22,9 +22,11 @@ class CryptocurrencyDatasourceImpl implements CryptocurrencyDatasource {
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       final List<dynamic> data = json.decode(response.body);
-      return data.map((final json) => CryptocurrencyModel.fromJson(json)).toList();
+      return data
+          .map((final json) => CryptocurrencyModel.fromJson(json))
+          .toList();
     } else {
-      throw Exception('Failed to load cryptocurrency data');
+      throw Exception('Failed to load cryptocurrency list data');
     }
   }
 }

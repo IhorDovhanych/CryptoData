@@ -16,9 +16,6 @@ class HomeCubit extends CubitBase<HomeState> {
   final GetPagginatedCryptocurrencyListUseCase _getPagginatedCryptocurrencyListUseCase = getIt<GetPagginatedCryptocurrencyListUseCase>();
   final GetPriceChartUseCase _getPriceChartUseCase = getIt<GetPriceChartUseCase>();
 
-  void countIncrement() {
-    emit(state.copyWith(count: state.count + 1));
-  }
 
   Future<void> getPagginatedCryptocurrencyList(final int page, final int amountPerPage, final String vsCurrency) async{
     try {

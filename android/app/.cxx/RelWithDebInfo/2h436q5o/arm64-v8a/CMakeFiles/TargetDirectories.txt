@@ -1,0 +1,2 @@
+D:/Projects/ChallengeMeTestTask/crypto_data/android/app/.cxx/RelWithDebInfo/2h436q5o/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Projects/ChallengeMeTestTask/crypto_data/android/app/.cxx/RelWithDebInfo/2h436q5o/arm64-v8a/CMakeFiles/rebuild_cache.dir

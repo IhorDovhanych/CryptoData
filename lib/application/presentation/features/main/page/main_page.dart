@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:crypto_data/application/di/injections.dart';
 import 'package:crypto_data/application/presentation/features/main/cubit/main_cubit.dart';
+import 'package:crypto_data/application/presentation/features/main/features/detail/cubit/detail_cubit.dart';
 import 'package:crypto_data/application/presentation/features/main/features/home/cubit/home_cubit.dart';
 import 'package:crypto_data/application/presentation/features/main/features/home/page/home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPage extends StatefulWidget implements AutoRouteWrapper {
   const MainPage({

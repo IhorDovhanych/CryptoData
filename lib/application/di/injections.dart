@@ -7,6 +7,7 @@ import 'package:crypto_data/application/domain/repository/price_chart_repository
 import 'package:crypto_data/application/domain/usecase/get_pagginated_cryptocurrency_list_use_case.dart';
 import 'package:crypto_data/application/domain/usecase/get_price_chart_use_case.dart';
 import 'package:crypto_data/application/presentation/features/main/cubit/main_cubit.dart';
+import 'package:crypto_data/application/presentation/features/main/features/detail/cubit/detail_cubit.dart';
 import 'package:crypto_data/application/presentation/features/main/features/home/cubit/home_cubit.dart';
 import 'package:get_it/get_it.dart';
 
@@ -43,6 +44,7 @@ void _initAppScope(final GetIt getIt) {
   //region Cubits
   getIt.registerFactory<MainCubit>(() => MainCubit());
   getIt.registerFactory<HomeCubit>(() => HomeCubit());
+  getIt.registerFactory<DetailCubit>(() => DetailCubit());
   //endregion
 }
 
