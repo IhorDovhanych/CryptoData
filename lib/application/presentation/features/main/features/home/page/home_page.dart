@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     );
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
 
-    context.read<HomeCubit>().getPagginatedCryptocurrencyList(1, 5, 'usd');
+    context.read<HomeCubit>().getPagginatedCryptocurrencyList(1, 1, 'usd');
   }
 
   @override
